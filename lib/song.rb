@@ -47,12 +47,12 @@ class Song
   end
 
   def self.new_from_filename(file_data)
-    data = file_data.split(" - ")
-    artist_name = data[0]
-    song_name = data[1].split(".")[0]
-    song = self.create_by_name(song_name)
-    song.artist_name = artist_name
-    song
+    data = file_data.split(" - ") # parses the original file by -
+    artist_name = data[0] # accesses the first element of the returned array
+    song_name = data[1].split(".")[0] # access the second element of the returned array and splits of at .
+    song = self.create_by_name(song_name) # calls the create by name method to instantiate a new object
+    song.artist_name = artist_name # sets the artist name to the instance of song
+    song  # returns song
   end
 
   def self.create_from_filename(file_data)
